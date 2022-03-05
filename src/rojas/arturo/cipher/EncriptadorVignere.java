@@ -2,6 +2,9 @@ package rojas.arturo.cipher;
 
 public class EncriptadorVignere implements Encripta {
 
+    /* Todo mensaje se pasa a uppercase. No permite caracteres especiales. Acepta espacios, pero mensajes que se encriptan con espacio TIENEN que ser desencriptados con espacio. */
+
+
     private final String clave = "HAKI";
 
     @Override

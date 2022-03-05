@@ -1,8 +1,11 @@
 package rojas.arturo.cipher;
 
+/* Todo mensaje se pasa a lowercase. No permite caracteres especiales. Acepta espacios, pero mensajes que se encriptan con espacio TIENEN que ser desencriptados con espacio. */
+
 public class EncriptadorCesar implements Encripta {
     @Override
-    public String encripta(String mensaje) {
+    public String encripta(String s) {
+        String mensaje = s.toLowerCase();
         int offset = 7;
         StringBuilder mensajeCifrado = new StringBuilder();
 
@@ -20,7 +23,8 @@ public class EncriptadorCesar implements Encripta {
     }
 
     @Override
-    public String desencripta(String mensaje) {
+    public String desencripta(String s) {
+        String mensaje = s.toLowerCase();
         int offset = 26 - (7%26);
         //un offset complementario al original.
 
