@@ -5,10 +5,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import rojas.arturo.testbean.MySpringCipherBeanWithDependency;
 
+import java.io.IOException;
+
 
 public class MainApp {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("file:META-INF/beans.xml");
 

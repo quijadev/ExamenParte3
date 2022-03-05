@@ -1,4 +1,4 @@
-package rojas.arturo.writer;
+package rojas.arturo.cipher;
 
 public interface Encripta {
     public String encripta(String mensaje);

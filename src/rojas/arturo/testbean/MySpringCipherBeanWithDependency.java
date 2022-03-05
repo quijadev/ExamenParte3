@@ -1,7 +1,11 @@
 package rojas.arturo.testbean;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import rojas.arturo.writer.Encripta;
+import rojas.arturo.cipher.Encripta;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class MySpringCipherBeanWithDependency {
 
@@ -12,10 +16,19 @@ public class MySpringCipherBeanWithDependency {
         this.encripta = encriptador;
     }
 
-    public void run() {
-        System.out.println(encripta.encripta("hola soy arturo"));
-        System.out.println(encripta.desencripta("ovsh zvf hyabyv"));
-    }
+    //ambos encriptadores aceptan espacios
+    public void run() throws IOException {
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
+        System.out.println("Digite el texto a encriptar");
+        System.out.println(encripta.encripta(in.readLine()));
+
+        System.out.println("Presione 1 para desencriptar texto, o cualquier otra tecla para salir.");
+
+        if (in.readLine().equals("1")){
+            System.out.println("Digite el texto a desencriptar");
+            System.out.println(encripta.desencripta(in.readLine()));
+        }
+    }
 
 }
